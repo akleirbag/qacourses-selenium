@@ -1,0 +1,17 @@
+
+// Apply the java plugin to add support for Java
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.13'
+
+    testCompile 'junit:junit:4.12'
+    
+    compile 'org.seleniumhq.selenium:selenium-java:3.0.1'
+}
