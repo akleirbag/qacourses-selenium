@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class TestBase {
+public class Firefox {
 
 	public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
 	public WebDriver driver;
@@ -21,7 +21,7 @@ public class TestBase {
 			wait = new WebDriverWait(driver, 10);
 			return;
 		}
-		System.setProperty("webdriver.gecko.driver", "C:\\dev\\drivers\\geckodriver.exe");
+		//System.setProperty("webdriver.gecko.driver", "C:\\dev\\drivers\\geckodriver.exe");
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability(FirefoxDriver.MARIONETTE, true);
 		driver = new FirefoxDriver(caps);

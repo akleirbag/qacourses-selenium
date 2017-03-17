@@ -3,7 +3,7 @@ package ru.stqa.training.selenium;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
-public class LoginUserTest extends TestBase{
+public class LoginUserTest extends Firefox{
 
 	
 	@Test

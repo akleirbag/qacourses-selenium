@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
-public class FirstTest extends TestBase {
+public class FirstTest extends Firefox {
 
     @Test
     public void test1() {
