@@ -1,38 +1,27 @@
-package menu;
+package test.menu;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import browser.Firefox;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 import leftMenu.Menu;
 import leftMenu.MenuEntry;
 import leftMenu.MenuItemEnum;
+import test.common.BaseTest;
 
-public class MenuTest  extends Firefox{
+public class MenuTest  extends BaseTest{
 
 	Menu menu;
 	List<MenuTestHelper> expected;
 
 	private static final String headerCSS ="#content > h1";
 	private static final String selectedMenuColor = "rgb(255, 0, 0)";
-
-	public void waitUntilVisibility(String element){
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(element)));
-	}
-
-	public void waitUntilTextIs(String element, String text){
-		wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector(element), text));
-	}
 	
 	public void waitUntilSubmenuTextColorIs(MenuEntry menu, MenuItemEnum submenu, String expColor){
 		
@@ -50,27 +39,22 @@ public class MenuTest  extends Firefox{
 	    });
 	}
 
-	@Before 
-	public void setup(){
+	@BeforeClass 
+	public void create(){
 		menu = new Menu(getDriver());
 		expected = new ArrayList<MenuTestHelper>();
+		System.out.println("MenuTest:setup");
 	}
 
-	@Test
-	public void loginUser(){
-		driver.navigate().to("http://localhost:8080/litecart/admin/");
-		driver.findElement(By.name("username")).sendKeys("admin");
-		driver.findElement(By.name("password")).sendKeys("admin");
-		driver.findElement(By.name(("login"))).click();	
-	}
 
 
 	@Test
 	public void checkMenu(){
+		System.out.println("MenuTest:checkMenu");
 		//wait just in case
 		
 		MenuEntry app = menu.get(MenuItemEnum.Appearance);
-		waitUntilVisibility(app.getCssSelector());
+		getWait().untilVisibility(app.getCssSelector());
 
 		//add expected values
 		expected.add(new MenuTestHelper(MenuItemEnum.Appearance, MenuItemEnum.Appearance, "Template"));
@@ -157,7 +141,7 @@ public class MenuTest  extends Firefox{
 			if (exp.menu != currentMenu){
 				menuEn.getMenuElement().click();
 				//check header
-				waitUntilTextIs(headerCSS, exp.title);
+				getWait().untilTextIs(headerCSS, exp.title);
 				currentMenu = exp.menu;
 				System.out.println("Click on menu " + exp.menu );
 			}

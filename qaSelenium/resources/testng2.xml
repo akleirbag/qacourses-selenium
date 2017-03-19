@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="QASelenium">
+  <parameter name="browser" value="firefox" />
+  <parameter name="url" value="http://localhost:8080/litecart" />
+ 
+  <test name="Menu Test" >
+    <classes>
+     <class name="test.startPage.StartPageTest" ></class>
+    </classes>
+  </test>
+</suite>

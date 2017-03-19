@@ -11,7 +11,14 @@ repositories {
 dependencies {
     compile 'org.slf4j:slf4j-api:1.7.13'
 
-    testCompile 'junit:junit:4.12'
+    //testCompile 'junit:junit:4.12'
+    testCompile 'org.testng:testng:6.1.1'
     
     compile 'org.seleniumhq.selenium:selenium-java:3.0.1'
 }
+
+test {
+     useTestNG {
+         suites 'resources/testng.xml'
+     }
+ }

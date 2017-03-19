@@ -1,6 +1,5 @@
 package leftMenu;
 
-import org.openqa.selenium.WebDriver;
 
 public class SubMenuEntry{
 
