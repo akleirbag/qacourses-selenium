@@ -21,7 +21,7 @@ public class Firefox extends Browser{
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability(FirefoxDriver.MARIONETTE, true);
 		driver = new FirefoxDriver(caps);
-		wait = new WaitWrapper( driver);
+		wait = new WaitWrapper( this);
 		tlDriver.set(driver);
 		System.out.println(((HasCapabilities) driver).getCapabilities());
 

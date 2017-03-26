@@ -58,8 +58,8 @@ public class Logo extends BasePage{
 	}
 	
 	
-	public Logo(WebDriver driver){
-		super(driver);
+	public Logo(){
+		super();
 		PageFactory.initElements(getDriver(), this);
 	}
 }

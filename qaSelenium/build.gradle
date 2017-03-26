@@ -1,7 +1,8 @@
-
-// Apply the java plugin to add support for Java
 apply plugin: 'java'
 
+
+group = 'qaSelenium'
+version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
@@ -9,12 +10,10 @@ repositories {
 }
 
 dependencies {
-    compile 'org.slf4j:slf4j-api:1.7.13'
+    compile "log4j:log4j:1.2.15", "org.seleniumhq.selenium:selenium-java:3.0.1"
 
     //testCompile 'junit:junit:4.12'
-    testCompile 'org.testng:testng:6.1.1'
-    
-    compile 'org.seleniumhq.selenium:selenium-java:3.0.1'
+    testCompile "org.testng:testng:6.1.1"
 }
 
 test {
@@ -22,3 +21,4 @@ test {
          suites 'resources/testng.xml'
      }
  }
+

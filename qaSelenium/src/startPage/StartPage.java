@@ -28,8 +28,8 @@ public class StartPage extends BasePage{
 		return productList;
 	}
 
-	public StartPage(WebDriver driver) {
-		super(driver);
+	public StartPage( ) {
+		super();
 		productList= new ArrayList<Product>();
 	}
 

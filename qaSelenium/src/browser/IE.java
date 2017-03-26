@@ -15,7 +15,7 @@ public class IE extends Browser{
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability("unexpectedAlertBehaviour", "dismiss");
 			driver = new InternetExplorerDriver(caps);
-			wait = new WaitWrapper( driver);
+			wait = new WaitWrapper( this);
 			System.out.println(((HasCapabilities) driver).getCapabilities());	
 		}
 

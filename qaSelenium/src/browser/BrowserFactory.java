@@ -27,6 +27,10 @@ public class BrowserFactory {
 		return browser;
 	}
 	
+	public static Browser getBrowser(){
+		return browser;
+	}
+	
 	public static void clearBrowser(){
 		browser = null;
 		//driver = null;

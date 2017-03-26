@@ -3,6 +3,10 @@
   <parameter name="url" value="http://localhost:8080/litecart/admin/" />
  
   <test name="Menu Test" >
+  
+   <parameter name="username" value="admin"></parameter>
+  <parameter name="password" value="admin"></parameter>
+  
     <classes>
      <class name="test.login.Login" ></class>
       <class name="test.menu.MenuTest" >

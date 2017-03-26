@@ -1,10 +1,10 @@
 package browser;
 
 import org.openqa.selenium.WebDriver;
-
 import common.WaitWrapper;
 
 public abstract class Browser {
+	
 	protected WebDriver driver;
 	public WaitWrapper wait;
 	
