@@ -3,6 +3,7 @@
 
 	<parameter name="browser" value="firefox" />
 	<parameter name="url" value="http://localhost:8080/litecart" />
+	<parameter name="logoutMessage" value="You are now logged out."></parameter>
 
 	<test name="Open litercart page">
 
@@ -12,20 +13,23 @@
 		<parameter name="customerPostcode" value="1"></parameter>
 		<parameter name="customerCountry" value="Qatar"></parameter>
 		<parameter name="customerCity" value="Doha"></parameter>
-		<parameter name="email" value="customer@gmail.com"></parameter>
+		<parameter name="email" value="customer3@gmail.com"></parameter>
 		<parameter name="phone" value="111 111 111"></parameter>
 		<parameter name="password" value="customer"></parameter>
-		
 		<parameter name="message" value="Your customer account has been created."></parameter>
-		<parameter name="logoutMessage" value="You are now logged out."></parameter>
 		<parameter name="successLoginMessage" value="You are now logged in as John Doe."></parameter>
-
 
 		<classes>
 			<class name="test.menu.StartPageMenuTest"></class>
 			<class name="registrationPanelTest.RegistratonTest"></class>
 			<class name="test.login.Logout"></class>
 			<class name="test.login.LoginCustomer"></class>
+			<class name="test.login.Logout"></class>
+		</classes>
+	</test>
+
+	<test name="Logout customer">
+		<classes>
 			<class name="test.login.Logout"></class>
 		</classes>
 	</test>
