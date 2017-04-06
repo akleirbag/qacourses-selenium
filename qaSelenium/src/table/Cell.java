@@ -24,8 +24,8 @@ public class Cell {
 		}
 	}
 	
-	public void getAttributeTextContent(){
-		Action.getAttributeTextContent(element);
+	public String getAttributeTextContent(){
+		return Action.getAttributeTextContent(element);
 	}
 
 	public Cell(WebElement element){

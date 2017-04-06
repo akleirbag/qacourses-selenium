@@ -16,7 +16,9 @@ public class TextTable {
 	private String tableRoot;
 	List<String> colNames;
 	List<WebElement> colNameWebElements;
-
+	List<Row> rows;
+	Row row;
+	List<WebElement> rowElements;
 
 	public WebElement getTable(){
 		WebElement table  = driver.findElement(By.cssSelector("table .dataTable"));
@@ -37,16 +39,58 @@ public class TextTable {
 		}
 	}
 
-	public List<WebElement> getRows(){
-		List<WebElement> rowsList = getTable().findElements(By.cssSelector("tr.row"));
-		return rowsList;
+	public List<WebElement> getRowEements(){
+		rowElements = getTable().findElements(By.cssSelector("tr.row"));
+		return rowElements;
 	}
+
+	public List<Row> getRows(){
+		rows = new ArrayList<Row>();
+		for(WebElement r : rowElements){
+			Row row = new Row(r);
+			rows.add(row);
+		}
+		return rows;
+	}
+
+
+
+
+	public int getColIndex(String colName){
+		return colNames.indexOf(colName);
+	}
+
+
+
+	public Row getRow(){
+		return row;
+	}
+
+
+	public Row getRow(String colName, String cellValue){
+		int ci = getColIndex(colName);
+		if( ci == -1){
+			return null;
+		}
+		for (Row r: getRows()){
+			String cv = r.getCell(ci).getAttributeTextContent();
+			boolean compare = Action.compareStrings(cv.trim(), cellValue.trim());
+			if(compare == true){
+				return r;
+			}
+		}
+		return null;
+	}
+
 
 	public TextTable(WebDriver driver, String tablePath){
 		this.driver = driver;
 		tableRoot = tablePath;
 		prepareColumnsNamesList();
-		
+		row = new Row(getTable());
+		getRowEements();
+
+
 	}
 }
 

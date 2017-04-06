@@ -1,13 +1,8 @@
 package common;
-
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-
 import java.lang.invoke.MethodHandles;
-
-import org.apache.commons.lang3.reflect.FieldUtils;
 import org.apache.log4j.Logger;
 
 public class Action {
@@ -27,6 +22,11 @@ public class Action {
 
 	public static String getAttributeTextContent(WebElement element){
 		return element.getAttribute("textContent");
+	}
+	
+
+	public static String getValue(WebElement element){
+		return element.getAttribute("value");
 	}
 
 	/**

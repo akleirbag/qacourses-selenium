@@ -1,8 +1,11 @@
 package test.login;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import common.Action;
 import leftMenu.Logo;
 import test.common.BaseTest;
 
@@ -15,6 +18,5 @@ public class Login  extends BaseTest{
 		driver.findElement(By.name("password")).sendKeys(password);
 		driver.findElement(By.name(("login"))).click();	
 		getWait().untilVisibility(Logo.getCssSelector());
-		
 	}
 }

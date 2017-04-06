@@ -46,7 +46,10 @@ public class MenuTest  extends BaseTest{
 		System.out.println("MenuTest:setup");
 	}
 
-
+	@Test
+	public void checkMenu3(){
+	 Assert.assertTrue(true);
+	}
 
 	@Test
 	public void checkMenu(){

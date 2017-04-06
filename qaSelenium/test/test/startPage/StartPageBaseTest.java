@@ -17,7 +17,6 @@ public class StartPageBaseTest extends BaseTest{
 	@BeforeClass
 	public void setupStartPage(){
 		startPage = new StartPage();
-		log.error("Ku uciesze Kamciuszka");
 	}
 	
 	

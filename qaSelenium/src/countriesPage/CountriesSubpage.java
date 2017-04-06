@@ -1,4 +1,4 @@
-package pageCountries;
+package countriesPage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import common.BasePage;
 import java.util.Collections;
 
-public class Countries extends BasePage{
+public class CountriesSubpage extends BasePage{
 
 	ArrayList<String> obtainedList;
 	List<WebElement> obtainedElementList;
@@ -39,7 +39,7 @@ public class Countries extends BasePage{
 	
 	
 
-	public Countries(){
+	public CountriesSubpage(){
 		super();
 		PageFactory.initElements(getDriver(), this);
 	}
