@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Check if countries are sorted.">
+<suite name="Create new customer">
 
 	<parameter name="browser" value="firefox" />
 	<parameter name="url" value="http://localhost:8080/litecart" />

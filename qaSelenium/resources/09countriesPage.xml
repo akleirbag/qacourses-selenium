@@ -1,0 +1,38 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Check if countries are sorted.">
+
+	<parameter name="browser" value="firefox" />
+	<parameter name="url" value=""></parameter>
+	<parameter name="username" value="admin"></parameter>
+	<parameter name="password" value="admin"></parameter>
+
+	<test name="Countries Test">
+
+		<parameter name="header" value="Countries"></parameter>
+		<parameter name="url" value="http://localhost:8080/litecart/admin/" />
+		<parameter name="columnIndex" value="5"></parameter>
+		<parameter name="columnValue" value="0"></parameter>
+		<parameter name="indexColumnToClick" value="6"></parameter>
+
+		<classes>
+			<class name="test.login.Login"></class>
+			<class name="test.countriesTest.OpenCountriesTest"></class>
+			<class name="test.countriesTest.CountriesTest">
+			</class>
+		</classes>
+	</test>
+
+	<test name="Geo Zones Test">
+
+		<parameter name="header" value="Geo Zones"></parameter>
+		<parameter name="indexColumnToClick" value="2"></parameter>
+
+		<classes>
+			<class name="test.geozonesTest.OpenGeoZonesTest"></class>
+			<class name="test.geozonesTest.GeoZonesTest">
+			</class>
+		</classes>
+	</test>
+
+
+</suite>

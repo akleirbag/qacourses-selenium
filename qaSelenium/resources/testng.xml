@@ -10,11 +10,15 @@
     <classes>
      <class name="test.login.Login" ></class>
       <class name="test.menu.MenuTest" >
-      	 <!-- <methods>
-      		<include name="loginUser"/>
-      		<include name="checkMenu"/>
-      	</methods> -->
+      	  <methods>
+      		<include name="checkMenu3"/>
+      	</methods>
       </class>
+       <class name="test.menu.MenuTest" >
+      	  <methods>
+      		<include name="checkMenu"/>
+      	</methods>
+      </class> 
     </classes>
   </test>
 </suite>
