@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import common.BasePage;
-import table.TextTable;
+import table.Table;
 
 public class Catalog extends BasePage{
 

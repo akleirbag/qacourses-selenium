@@ -17,13 +17,8 @@ public class OpenCatalogTest extends BaseTest{
 	@Parameters({"header"})
 	public void openCatalog(String header){
 		BasePage page = new BasePage();
-		MenuEntry menuCatalog = page.getMenu().get(MenuItemEnum.Catalog);
+		MenuEntry menuCatalog = page.getMenu().get(MenuItemEnum.Countries);
 		menuCatalog.getMenuElement().click();
-		
-		String submenuCss = menuCatalog.get(MenuItemEnum.CatalogCatalog).getCssSelector();
-		getWait().untilVisibility(submenuCss);
-		
-		menuCatalog.getSubMenuElement(MenuItemEnum.CatalogCatalog).click();
 		WebElement headerWE = page.getHeader().getHeaderElement();
 		String headerText = Action.getText(headerWE);
 		Assert.assertEquals(headerText , header);

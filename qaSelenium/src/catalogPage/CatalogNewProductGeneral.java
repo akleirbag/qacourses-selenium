@@ -15,14 +15,14 @@ import org.openqa.selenium.support.PageFactory;
 import common.Action;
 import common.BasePage;
 import common.Datapicker;
-import common.RowWithCheckBox;
-import common.Table;
+import table.RowWithCheckBox;
+import table.TreeTable;
 
 public class CatalogNewProductGeneral extends CatalogNewProduct{
 
 	protected  static  Logger log = Logger.getLogger(MethodHandles.lookup().lookupClass());
-	Table categoriesTable;
-	Table productGroupsTable;
+	TreeTable categoriesTable;
+	TreeTable productGroupsTable;
 	/*Datapicker datapicker;*/
 
 	private static final String generalContentCss = "div#tab-general";
@@ -47,19 +47,19 @@ public class CatalogNewProductGeneral extends CatalogNewProduct{
 
 	public void loadCategoriesTable(){
 		WebElement we = getDriver().findElements(By.cssSelector(categoriesListCss)).get(0);
-		categoriesTable = new Table(we);
+		categoriesTable = new TreeTable(we);
 	}
 
-	public Table getCategoriesTable() {
+	public TreeTable getCategoriesTable() {
 		return categoriesTable;
 	}
 
 	public void loadProductGroupsTable(){
 		WebElement w = getDriver().findElements(By.cssSelector(categoriesListCss)).get(1);
-		productGroupsTable = new Table(w);
+		productGroupsTable = new TreeTable(w);
 	}
 
-	public Table getProductGroupsTable() {
+	public TreeTable getProductGroupsTable() {
 		return productGroupsTable;
 	}
 

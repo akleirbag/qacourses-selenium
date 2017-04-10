@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import catalogPage.CatalogNewProductEnum;
 import catalogPage.CatalogNewProductGeneral;
 import common.Action;
-import common.RowWithCheckBox;
+import table.RowWithCheckBox;
 import test.common.BaseTest;
 
 public class AddProductGeneralTest extends BaseTest {

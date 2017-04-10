@@ -6,8 +6,11 @@ import org.openqa.selenium.support.PageFactory;
 
 import common.Action;
 import common.BasePage;
+import components.SaveCancelDeleteButtons;
 
 public class CatalogNewProduct extends BasePage{
+
+	SaveCancelDeleteButtons saveCancelDeleteButtons;
 
 	private static final String generalTabCss = "ul.index li:nth-child(1) a";
 	private static final String informtionTabCss = "ul.index li:nth-child(2) a";
@@ -60,34 +63,15 @@ public class CatalogNewProduct extends BasePage{
 			break;
 		}
 	}
-
-	private final static String saveButtonCss = "button[name=save]";
-	private final static String cancelButtonCss = "button[name=cancel]";
-	private final static String deleteButtonCss = "button[name=delete]";
-
-	@FindBy(css = saveButtonCss)
-	WebElement saveButton;
-
-	@FindBy(css = cancelButtonCss)
-	WebElement cancelButton;
-
-	@FindBy(css = deleteButtonCss)
-	WebElement deleteButton;
-
-	public WebElement getSaveButton(){
-		return saveButton;
+	
+	public SaveCancelDeleteButtons getSaveCancelDeleteButtons(){
+		return saveCancelDeleteButtons;
 	}
 
-	public WebElement getCancelButton(){
-		return cancelButton;
-	}
-
-	public WebElement getDeleteButton(){
-		return deleteButton;
-	}
 
 	public CatalogNewProduct(){
 		super.getDriver();
+		saveCancelDeleteButtons  = new SaveCancelDeleteButtons();
 		PageFactory.initElements(getDriver(), this);
 	}
 }

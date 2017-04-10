@@ -1,17 +1,17 @@
-package pageCountriesTest;
+package test.countriesTest;
 
 import org.testng.annotations.BeforeClass;
 
-import countriesPage.CountriesSubpage;
+import countriesPage.Countries;
 import test.common.BaseTest;
 
 public class CountriesBaseTest extends BaseTest{
 	
-	CountriesSubpage countries;
+	Countries countries;
 	
 	@BeforeClass
 	public void setupStartPage(){
-		countries = new CountriesSubpage();
+		countries = new Countries();
 	
 	}	
 }

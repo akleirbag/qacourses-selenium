@@ -6,22 +6,20 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 
 import common.Action;
 
-public class TextTable {
+public class Table {
 
 	WebDriver driver;
 	private String tableRoot;
 	List<String> colNames;
-	List<WebElement> colNameWebElements;
 	List<Row> rows;
-	Row row;
 	List<WebElement> rowElements;
 
-	public WebElement getTable(){
-		WebElement table  = driver.findElement(By.cssSelector("table .dataTable"));
+
+	public WebElement getElement(){
+		WebElement table  = driver.findElement(By.cssSelector(tableRoot));
 		return table;
 	}
 
@@ -31,7 +29,7 @@ public class TextTable {
 
 	public void prepareColumnsNamesList(){
 		colNames = new ArrayList<>();
-		colNameWebElements = getTable().findElements(By.cssSelector("tr .header th"));
+		List<WebElement> colNameWebElements = getElement().findElements(By.cssSelector("tr .header th"));
 		for(int col=0; col< colNameWebElements.size(); col++){
 			WebElement cell = colNameWebElements.get(col);
 			String colName = Action.getAttributeTextContent(cell);
@@ -39,33 +37,23 @@ public class TextTable {
 		}
 	}
 
-	public List<WebElement> getRowEements(){
-		rowElements = getTable().findElements(By.cssSelector("tr.row"));
+	public List<WebElement> getRowElements(){
+		rowElements = getElement().findElements(By.cssSelector("tr.row"));
 		return rowElements;
 	}
 
 	public List<Row> getRows(){
 		rows = new ArrayList<Row>();
-		for(WebElement r : rowElements){
+		for(WebElement r : getRowElements()){
 			Row row = new Row(r);
 			rows.add(row);
 		}
 		return rows;
 	}
 
-
-
-
 	public int getColIndex(String colName){
 		return colNames.indexOf(colName);
 	}
-
-
-
-	public Row getRow(){
-		return row;
-	}
-
 
 	public Row getRow(String colName, String cellValue){
 		int ci = getColIndex(colName);
@@ -82,15 +70,26 @@ public class TextTable {
 		return null;
 	}
 
+	public List<Row> findRowsNotHaving(int colIndex, String value){
+		List<Row> foundRows = new ArrayList<Row>();
 
-	public TextTable(WebDriver driver, String tablePath){
+		for (Row r : getRows()){
+			Cell cell = r.getCell(colIndex);
+			String cellText = cell.getAttributeTextContent();
+
+			if(!cellText.equals(value)){
+				foundRows.add(r);
+			}
+		}
+		return foundRows;
+	}
+
+	public Table(WebDriver driver, String tablePath){
 		this.driver = driver;
 		tableRoot = tablePath;
 		prepareColumnsNamesList();
-		row = new Row(getTable());
-		getRowEements();
-
-
+	//	getRowElements();
+		
 	}
 }
 

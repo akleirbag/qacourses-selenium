@@ -3,7 +3,7 @@ package common;
 import org.openqa.selenium.WebDriver;
 import browser.Browser;
 import browser.BrowserFactory;
-import header.Header;
+import components.Header;
 import leftMenu.Menu;
 import messages.MainMessages;
 

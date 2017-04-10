@@ -1,4 +1,4 @@
-package common;
+package table;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,30 +7,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
-public class Table {
+public class TreeTable {
 	WebElement element;
 	List<RowWithCheckBox> rows;
-	
-	WebElement header;
 
-	public WebElement getHeader() {
-		return header;
-	}
-
-	public WebElement getElement() {
-		return element;
-	}
-
-	public void setElement(WebElement element) {
-		this.element = element;
-	}
-	
 	private void loadRows() {
-		try {
-			header = element.findElement(By.cssSelector("th"));
-		} catch (NoSuchElementException e){
-			//log no header
-		}
 		rows = new ArrayList<RowWithCheckBox>();
 		List<WebElement> rowElements = element.findElements(By.cssSelector("tr"));
 		for (WebElement row: rowElements){
@@ -58,7 +39,7 @@ public class Table {
 		return rows;
 	}
 	
-	public Table(WebElement w){
+	public TreeTable(WebElement w){
 		element = w;
 		loadRows();
 	}

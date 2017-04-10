@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import catalogPage.Catalog;
 import table.Cell;
-import table.TextTable;
+import table.Table;
 import test.common.BaseTest;
 
 public class TestClass extends BaseTest{
@@ -22,7 +22,7 @@ public class TestClass extends BaseTest{
 
 	@Test
 	public void getValue(){
-		TextTable table = new TextTable(getDriver(), "dataTable");
+		Table table = new Table(getDriver(), "dataTable");
 		Cell c = table.getRows().get(5).getCell(table.getColIndex("Name"));
 
 		System.out.println(c.getAttributeTextContent());

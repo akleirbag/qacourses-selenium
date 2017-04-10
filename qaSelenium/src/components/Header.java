@@ -1,4 +1,4 @@
-package header;
+package components;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import common.Action;
 import table.Cell;
 import table.Row;
-import table.TextTable;
+import table.Table;
 
 public class CatalogTest extends CatalogBaseTest{
 
@@ -25,7 +25,7 @@ public class CatalogTest extends CatalogBaseTest{
 	@Test
 	@Parameters ({"findCoumnName", "findCoumnValue"})
 	public void checkIfProductIsAvailable(String colName, String cellValue){
-		TextTable table = new TextTable(getDriver(), "dataTable");
+		Table table = new Table(getDriver(), "dataTable");
 		Row row = table.getRow(colName, cellValue);
 		Assert.assertTrue(row != null);
 

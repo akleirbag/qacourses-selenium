@@ -28,7 +28,7 @@ public class AddNewProductButtons extends BaseTest{
 	@Test
 	@Parameters({"messageAfterSave"})
 	public void clickSaveButton(String text){
-		WebElement button = newProductPrices.getSaveButton();
+		WebElement button = newProductPrices.getSaveCancelDeleteButtons().getSaveButton();
 		Action.click(button);
 	
 		//catalog = new Catalog();
