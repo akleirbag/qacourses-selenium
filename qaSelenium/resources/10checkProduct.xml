@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Check if countries are sorted.">
+
+	<parameter name="browser" value="firefox" />
+	<parameter name="url" value=""></parameter>
+
+	<test name="Start Page Test">
+
+		<parameter name="url" value="http://localhost:8080/litecart/" />
+		<parameter name="detailsTitle" value="Yellow Duck"></parameter>
+		<parameter name="productAmount" value="15"></parameter>
+
+		<classes>
+			<class name="test.startPage.StartPageTest"></class>
+		</classes>
+	</test>
+
+</suite>
