@@ -1,0 +1,76 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Catalog - Add new product">
+
+	<parameter name="browser" value="firefox" />
+	<parameter name="url" value="" />
+	<parameter name="username" value="admin" />
+	<parameter name="password" value="admin" />
+
+
+	<test name="Menu Test">
+
+		<parameter name="url" value="http://localhost:8080/litecart/admin/" />
+		<parameter name="header" value="Catalog"></parameter>
+		<parameter name="newProductHeader" value="Add New Product"></parameter>
+
+		<parameter name="statusEnabled" value="true"></parameter>
+		<parameter name="productName" value="task12"></parameter>
+		<parameter name="productCode" value="12"></parameter>
+		<parameter name="categoryName" value="RD"></parameter>
+		<parameter name="subcategoryName" value="subcategory rd"></parameter>
+		<parameter name="prodctDefaultCategory" value="Root"></parameter>
+		<parameter name="productGroupsName" value="Male"></parameter>
+		<parameter name="productQuantity" value="2"></parameter>
+		<parameter name="prodctQuantityUnit" value="pcs"></parameter>
+		<parameter name="prodctDeliveryStatus" value="-- Select --"></parameter>
+		<parameter name="prodctSoldOutStatus" value="Temporary sold out"></parameter>
+		<parameter name="uploadImageName" value="tl.png"></parameter>
+		<parameter name="productDateValidFrom" value="2016-01-02"></parameter>
+		<parameter name="productDateValidTo" value="2018-05-05"></parameter>
+
+		<classes>
+			<class name="test.login.Login"></class>
+			<class name="test.catalogTest.OpenCatalogTest"></class>
+			<class name="test.catalogTest.CatalogTest"></class>
+			<class name="test.catalog.newProduct.AddProductGeneralTest" />
+		</classes>
+	</test>
+
+	<test name="Add new product - set Information tab">
+
+		<parameter name="manufacturer" value="ACME Corp."></parameter>
+		<parameter name="supplier" value="-- Select --"></parameter>
+		<parameter name="keywords" value="keywords test"></parameter>
+		<parameter name="shortDescription" value="Short description test"></parameter>
+		<parameter name="description" value="description test"></parameter>
+		<parameter name="headTitle" value="head title test"></parameter>
+		<parameter name="metaDescription" value="meta description test"></parameter>
+		<classes>
+			<class name="test.catalog.newProduct.AddProductInformationTest"></class>
+		</classes>
+	</test>
+	
+	<test name="Add new product - set Prices tab">
+
+		<parameter name="purchasePriceValue" value="1"></parameter>
+		<parameter name="purchasePriceCurrency" value="US Dollars"></parameter>
+		<parameter name="taxClass" value="-- Select --"></parameter>
+		<parameter name="priceUSD" value="4.00"></parameter>
+		<parameter name="priceInclTaxUSD" value="4.00"></parameter>
+		<parameter name="priceEUR" value="2.00"></parameter>
+		<parameter name="priceInclTaxEUR" value="2.00"></parameter>
+		<classes>
+			<class name="test.catalog.newProduct.AddProductPricesTest"></class>
+		</classes>
+	</test>
+	
+	<test name="Add new product - click Save buton">
+
+		<parameter name="messageAfterSave" value="Changes were successfully saved."></parameter>
+
+		<classes>
+			<class name="test.catalog.newProduct.AddNewProductButtons"></class>
+		</classes>
+	</test>
+	
+</suite>
