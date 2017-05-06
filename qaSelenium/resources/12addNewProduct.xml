@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Catalog - Add new product">
 
-	<parameter name="browser" value="firefox" />
+	<parameter name="browser" value="chrome" />
 	<parameter name="url" value="" />
 	<parameter name="username" value="admin" />
 	<parameter name="password" value="admin" />

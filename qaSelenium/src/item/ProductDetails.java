@@ -14,6 +14,8 @@ public class ProductDetails extends BasePage{
 	private final String regularPriceCss= "div.price-wrapper s.regular-price";
 	private final static String campaignsTitleCss= "div.content h1.title";
 	private final String campaignsSubTitleCss= "div.content span.sku";
+	private final String quantityCss = "input[name=quantity]";
+	private final String addToCartButtonCss = "button[name=add_cart_product]";
 
 	public static String getCssSelector(){
 		return campaignsTitleCss;
@@ -31,6 +33,12 @@ public class ProductDetails extends BasePage{
 	@FindBy(css = campaignsSubTitleCss)
 	WebElement subTitle;
 
+	@FindBy(css = quantityCss)
+	WebElement quantity;
+
+	@FindBy(css=addToCartButtonCss)
+	WebElement addToCartButton;
+
 	public WebElement getRedPrice(){
 		return redPrice;
 	}
@@ -45,6 +53,14 @@ public class ProductDetails extends BasePage{
 
 	public WebElement getSubTitle(){
 		return subTitle;
+	}
+
+	public WebElement getQuantity(){
+		return quantity;
+	}
+
+	public WebElement getAddToCartButton(){
+		return addToCartButton;
 	}
 
 	public ProductDetails(WebDriver driver) {
